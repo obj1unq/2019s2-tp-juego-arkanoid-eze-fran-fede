@@ -1,5 +1,17 @@
 import wollok.game.*
+import cosillas.*
 
-program nombreDeSuJuego {
+program arkanoid {
+	//  CONFIG	
+	game.title("Arkanoid")
+	game.height(10)
+	game.width(10)
+	game.boardGround("ArkanoidFondo.png")
+
+	//  VISUALES
+	game.addVisualCharacter(barraNormal)
+// 	game.addVisualIn(barraNormal, game.at(1, 1))
+ 	
+ 	//  COMIENZA
 	game.start()
 }
