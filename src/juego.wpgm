@@ -6,7 +6,7 @@ program arkanoid {
 	game.title("Arkanoid")
 	game.height(10)
 	game.width(10)
-	game.boardGround("ArkanoidFondo.png")
+	game.boardGround("Fondo.png")
 
 	//  VISUALES
 	game.addVisualCharacter(barraNormal)

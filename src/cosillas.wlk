@@ -7,5 +7,5 @@ object barraNormal{
 	
 	var property position = new Position(x = 0, y = 0)
 	
-	method image() = "ArkanoidBarraNormal.png"
+	method image() = "BarraNormal.png"
  	}
