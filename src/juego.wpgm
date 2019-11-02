@@ -1,17 +1,13 @@
-import wollok.game.*
-import cosillas.*
+import wollok.game.* 
+import nivel0.*
 
-program arkanoid {
-	//  CONFIG	
+program Arkanoid {
 	game.title("Arkanoid")
-	game.height(10)
+	game.height(14)
 	game.width(10)
 	game.boardGround("Fondo.png")
 
-	//  VISUALES
-	game.addVisualCharacter(barraNormal)
-// 	game.addVisualIn(barraNormal, game.at(1, 1))
- 	
- 	//  COMIENZA
+  
+	nivel0.cargar()
 	game.start()
 }
