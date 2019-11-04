@@ -1,8 +1,9 @@
 import wollok.game.*
 import orientacion.*
+import barra.*
 
 object pelota{
-	var property position = new Position(x = 2, y = 2)
+	var property position = new Position(x = barra.position().x(), y = 1)
 	var property orientacion = norEste
 
 	method image() = "PelotaAzul0.png"

@@ -38,11 +38,19 @@ method cargar() {
 
  
 		var primeraFilaBloques = []
-		
+		var segundaFilaBloques = []
+		var tercerFilaBloques = []
 		(1 .. 8).forEach{n => primeraFilaBloques.add(new Position(x=n, y=largo-1))}
+		
+		(1 .. 8).forEach{n => segundaFilaBloques.add(new Position(x=n, y=largo-2))}
+		
+		(1 .. 8).forEach{n => tercerFilaBloques.add(new Position(x=n, y=largo-3))}
 		
 		primeraFilaBloques.forEach { p => self.dibujar(new BloqueAmarillo(position = p))}	
 		
+		segundaFilaBloques.forEach { p => self.dibujar(new BloqueAzul(position = p))}
+		
+		tercerFilaBloques.forEach { p => self.dibujar(new BloqueFucsia(position = p))}
 				
 		game.addVisual(pelota)		
 		game.addVisualCharacter(barra)
