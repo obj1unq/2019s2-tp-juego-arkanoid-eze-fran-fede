@@ -7,9 +7,12 @@ object barra{
 	
 	method image() = "BarraNormal0.png"
 	
-	method rebotar() = norEste
+	method rebotar(unaPelota) = if(unaPelota.vaAlEste())  norEste else norOeste
 	
 	method efecto(){
 		
 	}
+	method cambiarPanorama(unaPelota) {
+		 unaPelota.vaAlNorte(true)
+		 }
 }

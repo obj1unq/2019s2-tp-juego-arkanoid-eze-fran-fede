@@ -51,13 +51,18 @@ method cargar() {
 		segundaFilaBloques.forEach { p => self.dibujar(new BloqueAzul(position = p))}
 		
 		tercerFilaBloques.forEach { p => self.dibujar(new BloqueFucsia(position = p))}
+		
+
 				
 		game.addVisual(pelota)		
 		game.addVisualCharacter(barra)
 		
-		game.onTick(500, "movimiento", { pelota.moverse()})
+		game.onTick(200, "movimiento", { pelota.moverse()})
 		
-		game.whenCollideDo(pelota, {elemento => pelota.cambiarDireccion(elemento.rebotar())})
+		game.whenCollideDo(pelota, {elemento => pelota.cambiarDeOrientacion(elemento.rebotar(pelota))
+															elemento.cambiarPanorama(pelota)
+		})
+		
 		game.whenCollideDo(pelota, {elemento => elemento.efecto()})
 }
 

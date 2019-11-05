@@ -4,11 +4,15 @@ import wollok.game.*
 class Bloques{
 	var property position 
 	
-	method rebotar() = surOeste
+	method rebotar(unaPelota) = if(unaPelota.vaAlEste())  surEste else surOeste
 	
 	method efecto(){
 		game.removeVisual(self)	
 	}
+	
+	method cambiarPanorama(unaPelota) {
+		 unaPelota.vaAlNorte(false)
+		 }
 	
 }
 
