@@ -1,5 +1,5 @@
 import wollok.game.*
-import orientacion.*
+import direcciones.*
 
 
 object barra{
@@ -7,12 +7,12 @@ object barra{
 	
 	method image() = "BarraNormal0.png"
 	
-	method rebotar(unaPelota) = if(unaPelota.vaAlEste())  norEste else norOeste
+	method redireccionarElemento(unaPelota) = if(unaPelota.vaAlEste())  norEste else norOeste
 	
 	method efecto(){
 		
 	}
-	method cambiarPanorama(unaPelota) {
+	method cambiarBrujula(unaPelota) {
 		 unaPelota.vaAlNorte(true)
 		 }
 }

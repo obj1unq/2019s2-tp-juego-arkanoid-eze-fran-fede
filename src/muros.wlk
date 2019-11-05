@@ -1,16 +1,16 @@
-import orientacion.*
+import direcciones.*
 
 class ParedIzq {
 	var property position 
 	
 	method image() = "ParedIzq.png"
 	
-	method rebotar(unaPelota) = if(unaPelota.vaAlNorte())  norEste else surEste
+	method redireccionarElemento(unaPelota) = if(unaPelota.vaAlNorte())  norEste else surEste
 	
 	method efecto(){
 		
 	}
-	method cambiarPanorama(unaPelota) {
+	method cambiarBrujula(unaPelota) {
 		 unaPelota.vaAlEste(true)
 		 }
 }
@@ -19,12 +19,12 @@ class ParedDer {
 	
 	method image() = "ParedDer.png"
 	
-	method rebotar(unaPelota) =   if(unaPelota.vaAlNorte())  norOeste else surOeste
+	method redireccionarElemento(unaPelota) =   if(unaPelota.vaAlNorte())  norOeste else surOeste
 	
 	method efecto(){
 		
 	}
-	method cambiarPanorama(unaPelota) {
+	method cambiarBrujula(unaPelota) {
 		 unaPelota.vaAlEste(false)
 		 }
 								
@@ -34,19 +34,19 @@ class ParedArriba {
 	
 	method image() = "ParedArriba.png"
 	
-	method rebotar(unaPelota) = if(unaPelota.vaAlEste())  surEste else surOeste
+	method redireccionarElemento(unaPelota) = if(unaPelota.vaAlEste())  surEste else surOeste
 	
 	method efecto(){
 		
 	}
-	method cambiarPanorama(unaPelota) {
+	method cambiarBrujula(unaPelota) {
 		 unaPelota.vaAlNorte(false)
 		 }
 }
-class ParedAbajo {
+/*class ParedAbajo {
 	var property position 
 	
 	method image() = "ParedAbajo.png"
 	
 	
-}
+}*/

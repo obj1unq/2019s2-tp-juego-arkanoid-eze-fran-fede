@@ -1,16 +1,16 @@
-import orientacion.*
+import direcciones.*
 import wollok.game.*
 
 class Bloques{
 	var property position 
 	
-	method rebotar(unaPelota) = if(unaPelota.vaAlEste())  surEste else surOeste
+	method redireccionarElemento(unaPelota) = if(unaPelota.vaAlEste())  surEste else surOeste
 	
 	method efecto(){
 		game.removeVisual(self)	
 	}
 	
-	method cambiarPanorama(unaPelota) {
+	method cambiarBrujula(unaPelota) {
 		 unaPelota.vaAlNorte(false)
 		 }
 	

@@ -32,7 +32,7 @@ method cargar() {
 		
 		posParedesIzquierda.forEach { p => self.dibujar(new ParedIzq(position = p))}	
 		
-		posParedesAbajo.forEach { p => self.dibujar(new ParedAbajo(position = p))}	
+//		posParedesAbajo.forEach { p => self.dibujar(new ParedAbajo(position = p))}	
 		
 //	BLOQUES
 
@@ -57,9 +57,9 @@ method cargar() {
 		game.addVisual(pelota)		
 		game.addVisualCharacter(barra)
 		
-		game.onTick(200, "movimiento", { pelota.moverse()})
+		game.onTick(200, "movimiento", { pelota.siguientePosicion()})
 		
-		game.whenCollideDo(pelota, {elemento => pelota.cambiarDeOrientacion(elemento.rebotar(pelota))
+		game.whenCollideDo(pelota, {elemento => pelota.cambiarDeDireccion(elemento.redireccionarElemento(pelota))
 															elemento.cambiarPanorama(pelota)
 		})
 		

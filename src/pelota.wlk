@@ -1,10 +1,10 @@
 import wollok.game.*
-import orientacion.*
+import direcciones.*
 import barra.*
 
 object pelota{
 	var property position = new Position(x = barra.position().x(), y = 1)
-	var property orientacion = norEste
+	var property direccion = norEste
 	
 	var property vaAlNorte = true
 	var property vaAlEste = true
@@ -12,12 +12,12 @@ object pelota{
 	method image() = "PelotaAzul0.png"
 
 
-	method moverse(){
-		orientacion.nuevaPosicion(position)
-		position = orientacion.orienta()
+	method siguientePosicion(){
+		direccion.nuevaPosicion(position)
+		position = direccion.nuevaPosicion()
 	}
 
-	method cambiarDeOrientacion(unaOrientacion){
-		orientacion = unaOrientacion
+	method cambiarDeDireccion(unaDireccion){
+		direccion = unaDireccion
 	}
 }
