@@ -1,4 +1,5 @@
 import direcciones.*
+import wollok.game.*
 
 class ParedIzq {
 	var property position 
@@ -41,12 +42,17 @@ class ParedArriba {
 	}
 	method cambiarBrujula(unaPelota) {
 		 unaPelota.vaAlNorte(false)
-		 }
+	}
 }
 /*class ParedAbajo {
 	var property position 
 	
 	method image() = "ParedAbajo.png"
 	
+	method redireccionarElemento(unaPelota) {}
 	
+	method efecto(){
+		game.boardGround("FondeGameOver.png")
+	}
+	method cambiarBrujula(unaPelota) {}
 }*/
