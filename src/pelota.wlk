@@ -20,4 +20,11 @@ object pelota{
 	method cambiarDeDireccion(unaDireccion){
 		direccion = unaDireccion
 	}
+	
+	method perdi() = self.position() == self.ubicacionPerdi(not barra.position().x(), 0)
+					
+	
+	method ubicacionPerdi(x,y) = game.at(x, y)
+	
+	
 }

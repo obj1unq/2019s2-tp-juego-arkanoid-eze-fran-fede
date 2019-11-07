@@ -5,6 +5,14 @@ import pelota.*
 import barra.*
 
 object nivel0 {
+	var property vidas = 3
+	
+	method gameOver() = if(self.vidas() == 0) game.stop()
+						else {}
+	
+	method descontarVida(){
+		if(pelota.perdi()) vidas -= 1
+	}
 	
 method cargar() {
 	
