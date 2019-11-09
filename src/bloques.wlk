@@ -18,7 +18,7 @@ class Bloques{
 
 class BloqueAmarillo inherits Bloques{
 	
-	method image() = "BloqueAmarillo0.png"
+	method image() = "BloqueAmarillo.png"
 }
 
 class BloqueAzul inherits Bloques{

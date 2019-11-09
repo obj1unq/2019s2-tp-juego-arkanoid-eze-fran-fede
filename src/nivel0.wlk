@@ -66,13 +66,7 @@ method cargar() {
 		game.addVisualCharacter(barra)
 		
 		game.onTick(200, "movimiento", { pelota.siguientePosicion()})
-		
-		game.whenCollideDo(pelota, {elemento => 	elemento.efecto()
-													pelota.cambiarDeDireccion(elemento.redireccionarElemento(pelota))
-													elemento.cambiarBrujula(pelota)
-		})
-		
-	//	game.whenCollideDo(pelota, {elemento => elemento.efecto()})
+	
 }
 
 method dibujar(dibujo) {

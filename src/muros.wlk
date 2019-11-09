@@ -14,6 +14,7 @@ class ParedIzq {
 	method cambiarBrujula(unaPelota) {
 		 unaPelota.vaAlEste(true)
 		 }
+
 }
 class ParedDer {
 	var property position 
@@ -28,7 +29,7 @@ class ParedDer {
 	method cambiarBrujula(unaPelota) {
 		 unaPelota.vaAlEste(false)
 		 }
-								
+							
 }
 class ParedArriba {
 	var property position 
