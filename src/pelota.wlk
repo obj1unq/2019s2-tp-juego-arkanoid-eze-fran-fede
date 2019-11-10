@@ -14,29 +14,45 @@ object pelota{
 	method image() = "PelotaAzul.png"
 
 
-	method siguientePosicion(){
-		direccion.alterarPosicion(position)
+	method siguientePosicion()
+	{
+		direccion.generarPosiblesPosiciones(position)
 		
-		var posicionParaChocar1 = direccion.choque1()
-		var posicionParaChocar2 = direccion.choque2()
+		var posicionParaChocar1 = direccion.posicionChoque1()
+		var posicionParaChocar2 = direccion.posicionChoque2()
+		
+		var posicionEnDiagonal = direccion.posicionDiagonal()
 
 		
-		if ( self.noHayObjetoEnPosicion(posicionParaChocar1) and self.noHayObjetoEnPosicion(posicionParaChocar2) )
+		if ( self.noHayObjetoEnPosicion(posicionParaChocar1) and self.noHayObjetoEnPosicion(posicionParaChocar2) and self.noHayObjetoEnPosicion(posicionEnDiagonal) )
 			{
-					 position = direccion.nuevaPosicion()
+					 position = posicionEnDiagonal
 				
 			}
 			
-			else{			
+			else	{			
 					
-					if(self.hayObjetoEnPosicion(posicionParaChocar1)) {
+					if(self.hayObjetoEnPosicion(posicionEnDiagonal) and not self.hayObjetoEnPosicion(posicionParaChocar1) and not self.hayObjetoEnPosicion(posicionParaChocar2)) 
+					{
+						
+					self.cambiarParametrosPorColision(posicionEnDiagonal)
+					
+						}
+					
+					if(self.hayObjetoEnPosicion(posicionParaChocar1)) 
+						{
 						
 					self.cambiarParametrosPorColision(posicionParaChocar1)
 					
-					}else{
+						}
+					if(self.hayObjetoEnPosicion(posicionParaChocar2)) 
+					{
 						
-						self.cambiarParametrosPorColision(posicionParaChocar2)
-					}	
+					self.cambiarParametrosPorColision(posicionParaChocar2)
+					
+					}
+					
+						
 				}	
 	}
 	

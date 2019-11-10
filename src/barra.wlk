@@ -7,7 +7,7 @@ object barra{
 	
 	method image() = "BarraNormal0.png"
 	
-	method redireccionarElemento(unaPelota) = if(unaPelota.vaAlEste())  norEste else norOeste
+	method redireccionarElemento(unaPelota) = if(unaPelota.vaAlEste())  norEste else norOeste 
 	
 	method efecto(){
 		
