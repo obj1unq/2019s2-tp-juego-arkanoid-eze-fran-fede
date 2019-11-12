@@ -10,7 +10,7 @@ object barra{
 	method redireccionarElemento(unaPelota) = if(unaPelota.vaAlEste())  norEste else norOeste 
 	
 	method efecto(){
-		
+		game.sound("Golpe_01.wav")
 	}
 	method cambiarBrujula(unaPelota) {
 		 unaPelota.vaAlNorte(true)

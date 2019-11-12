@@ -3,6 +3,7 @@ import muros.*
 import bloques.*
 import pelota.*
 import barra.*
+import poderes.*
 
 object nivel0 {
 	var property vidas = 3
@@ -60,7 +61,6 @@ method cargar() {
 		
 		tercerFilaBloques.forEach { p => self.dibujar(new BloqueFucsia(position = p))}
 		
-
 				
 		game.addVisual(pelota)		
 		game.addVisualCharacter(barra)

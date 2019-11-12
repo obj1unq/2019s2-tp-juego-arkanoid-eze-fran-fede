@@ -1,59 +1,62 @@
 import direcciones.*
 import wollok.game.*
 
-class ParedIzq {
+
+class Pared{
 	var property position 
 	
-	method image() = "ParedIzq.png"
+	method image()
 	
-	method redireccionarElemento(unaPelota) = if(unaPelota.vaAlNorte())  norEste else surEste
+	method redireccionarElemento(unaPelota)
 	
 	method efecto(){
-		
+		game.sound("Golpe_02.wav")
 	}
-	method cambiarBrujula(unaPelota) {
+	method cambiarBrujula(unaPelota) 
+	
+}
+
+class ParedIzq inherits Pared{
+	
+	override method image() = "ParedIzq.png"
+	
+	override method redireccionarElemento(unaPelota) = if(unaPelota.vaAlNorte())  norEste else surEste
+	
+	override method cambiarBrujula(unaPelota) {
 		 unaPelota.vaAlEste(true)
 		 }
 
 }
-class ParedDer {
-	var property position 
+class ParedDer inherits Pared{
 	
-	method image() = "ParedDer.png"
+	override method image() = "ParedDer.png"
 	
-	method redireccionarElemento(unaPelota) =   if(unaPelota.vaAlNorte())  norOeste else surOeste
+	override method redireccionarElemento(unaPelota) =   if(unaPelota.vaAlNorte())  norOeste else surOeste
 	
-	method efecto(){
-		
-	}
-	method cambiarBrujula(unaPelota) {
+	override method cambiarBrujula(unaPelota) {
 		 unaPelota.vaAlEste(false)
 		 }
 							
 }
-class ParedArriba {
-	var property position 
+class ParedArriba inherits Pared{
+
 	
-	method image() = "ParedArriba.png"
+	override method image() = "ParedArriba.png"
 	
-	method redireccionarElemento(unaPelota) = if(unaPelota.vaAlEste())  surEste else surOeste
+	override method redireccionarElemento(unaPelota) = if(unaPelota.vaAlEste())  surEste else surOeste
 	
-	method efecto(){
-		
-	}
-	method cambiarBrujula(unaPelota) {
+	override method cambiarBrujula(unaPelota) {
 		 unaPelota.vaAlNorte(false)
 	}
 }
-/*class ParedAbajo {
-	var property position 
+/*class ParedAbajo ParedIzq inherits Pared{
 	
-	method image() = "ParedAbajo.png"
+	override method image() = "ParedAbajo.png"
 	
-	method redireccionarElemento(unaPelota) {}
+	override method redireccionarElemento(unaPelota) {}
 	
-	method efecto(){
-		game.boardGround("FondeGameOver.png")
+	override method efecto(){
+		
 	}
-	method cambiarBrujula(unaPelota) {}
+	override method cambiarBrujula(unaPelota) {}
 }*/

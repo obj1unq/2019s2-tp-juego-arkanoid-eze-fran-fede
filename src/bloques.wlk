@@ -8,6 +8,7 @@ class Bloques{
 	
 	method efecto(){
 		game.removeVisual(self)	
+		game.sound("Golpe_03.wav")
 	}
 	
 	method cambiarBrujula(unaPelota) {
