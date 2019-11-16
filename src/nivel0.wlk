@@ -4,18 +4,35 @@ import bloques.*
 import pelota.*
 import barra.*
 import poderes.*
+import direcciones.*
 
 object nivel0 {
 	var property vidas = 3
 	
 	method gameOver() = if(self.vidas() == 0) game.stop()
 						else {}
+						
+/* 	
+		method gameOver() = if(self.vidas() == 0) { 
+							game.boardGround("FondeGameOver.png")
+		//					game.onTick(3000, "gameOver", game.stop())
+							}
+						else {}
+*/	
 	
-	method descontarVida(){
-		if(pelota.perdi()) vidas -= 1
+ 	method descontarVida(){
+
+		if(pelota.positionY() == 0 ) {
+			vidas -= 1
+			pelota.position(new Position(x = 3, y = 3))
+			pelota.direccion (norEste)
+			pelota.vaAlNorte(true)
+			pelota.vaAlEste(true)
+			}
 	}
+
 	
-method cargar() {
+	method cargar() {
 	
  		const ancho = game.width() - 1
 		const largo = game.height() - 1
@@ -24,7 +41,7 @@ method cargar() {
 		var posParedesArriba = []
 		var posParedesDerecha = []
 		var posParedesIzquierda = []
-		var posParedesAbajo = []
+//		var posParedesAbajo = []
 		
 		(0 .. ancho).forEach{ n => posParedesArriba.add(new Position(x=n, y=largo)) } // bordeArriba 
 		
@@ -32,16 +49,16 @@ method cargar() {
 	
 		(0 .. largo).forEach{ n => posParedesIzquierda.add(new Position(x=0, y=n)) } // bordeIzq 
 		
-		(0 .. ancho).forEach{ n => posParedesAbajo.add(new Position(x=n, y=0)) } // bordeAbajo 
+//		(0 .. ancho).forEach{ n => posParedesAbajo.add(new Position(x=n, y=0)) } // bordeAbajo 
 		
 
-		posParedesArriba.forEach { p => self.dibujar(new ParedArriba(position = p))}	
+		posParedesArriba.forEach { p => self.dibujarCelda(new ParedArriba(position = p))}	
 		
-		posParedesDerecha.forEach { p => self.dibujar(new ParedDer(position = p))}	
+		posParedesDerecha.forEach { p => self.dibujarCelda(new ParedDer(position = p))}	
 		
-		posParedesIzquierda.forEach { p => self.dibujar(new ParedIzq(position = p))}	
+		posParedesIzquierda.forEach { p => self.dibujarCelda(new ParedIzq(position = p))}	
 		
-//		posParedesAbajo.forEach { p => self.dibujar(new ParedAbajo(position = p))}	
+//		posParedesAbajo.forEach { p => self.dibujarCelda(new ParedAbajo(position = p))}	
 		
 //	BLOQUES
 
@@ -55,21 +72,24 @@ method cargar() {
 		
 		(1 .. 8).forEach{n => tercerFilaBloques.add(new Position(x=n, y=largo-3))}
 		
-		primeraFilaBloques.forEach { p => self.dibujar(new BloqueAmarillo(position = p))}	
+		primeraFilaBloques.forEach { p => self.dibujarCelda(new BloqueAmarillo(position = p))}	
 		
-		segundaFilaBloques.forEach { p => self.dibujar(new BloqueAzul(position = p))}
+		segundaFilaBloques.forEach { p => self.dibujarCelda(new BloqueAzul(position = p))}
 		
-		tercerFilaBloques.forEach { p => self.dibujar(new BloqueFucsia(position = p))}
+		tercerFilaBloques.forEach { p => self.dibujarCelda(new BloqueFucsia(position = p))}
 		
 				
 		game.addVisual(pelota)		
 		game.addVisualCharacter(barra)
 		
-		game.onTick(200, "movimiento", { pelota.siguientePosicion()})
+		game.onTick(200, "movimiento", { pelota.siguientePosicion()
+										 self.descontarVida()
+										 self.gameOver()
+										})
 	
-}
+	}
 
-method dibujar(dibujo) {
+	method dibujarCelda(dibujo) {
 		game.addVisual(dibujo)
 	}
 	

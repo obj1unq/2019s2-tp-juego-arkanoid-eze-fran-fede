@@ -3,7 +3,7 @@ import direcciones.*
 
 
 object barra{
-	var property position = new Position(x = 4, y = 0)
+	var property position = new Position(x = 4, y = 1)
 	
 	method image() = "BarraNormal0.png"
 	

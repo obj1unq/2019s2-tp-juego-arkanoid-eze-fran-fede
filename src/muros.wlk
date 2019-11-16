@@ -49,7 +49,8 @@ class ParedArriba inherits Pared{
 		 unaPelota.vaAlNorte(false)
 	}
 }
-/*class ParedAbajo ParedIzq inherits Pared{
+/*
+class ParedAbajo inherits Pared{
 	
 	override method image() = "ParedAbajo.png"
 	
@@ -59,4 +60,6 @@ class ParedArriba inherits Pared{
 		
 	}
 	override method cambiarBrujula(unaPelota) {}
-}*/
+}
+
+*/

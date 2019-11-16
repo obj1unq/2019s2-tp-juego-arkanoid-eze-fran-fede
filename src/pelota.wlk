@@ -50,8 +50,7 @@ object pelota{
 						
 					self.cambiarParametrosPorColision(posicionEnHorizontal)
 					
-					}
-					
+					}		
 						
 				}	
 	}
@@ -73,12 +72,6 @@ object pelota{
 					
 		objetoPorColisionar.efecto()
 	}
-
 	
-	method perdi() = self.position() == self.ubicacionPerdi(not barra.position().x(), 0)
-					
-	
-	method ubicacionPerdi(x,y) = game.at(x, y)
-	
-	
+	method positionY() =  position.y()
 }
