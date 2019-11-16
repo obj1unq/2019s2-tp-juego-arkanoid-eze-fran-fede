@@ -30,4 +30,9 @@ class BloqueAzul inherits Bloques{
 class BloqueFucsia inherits Bloques{
 	
 	method image() = "Bloquefucsia.png"
+	
+	override method efecto(){
+		super()
+		game.addVisual(new BloqueAzul( position = self.position()))	
+	}
 }

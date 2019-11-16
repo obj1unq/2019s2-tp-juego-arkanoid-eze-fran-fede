@@ -18,13 +18,13 @@ object pelota{
 	{
 		direccion.generarPosiblesPosiciones(position)
 		
-		var posicionParaChocar1 = direccion.posicionChoque1()
-		var posicionParaChocar2 = direccion.posicionChoque2()
+		var posicionEnDiagonal = direccion.proximaPosicionDiagonal()
+		var posicionEnVertical = direccion.proximaPosicionVertical()
+		var posicionEnHorizontal = direccion.proximaPosicionHorizontal()
 		
-		var posicionEnDiagonal = direccion.posicionDiagonal()
 
 		
-		if ( self.noHayObjetoEnPosicion(posicionParaChocar1) and self.noHayObjetoEnPosicion(posicionParaChocar2) and self.noHayObjetoEnPosicion(posicionEnDiagonal) )
+		if ( self.noHayObjetoEnPosicion(posicionEnVertical) and self.noHayObjetoEnPosicion(posicionEnHorizontal) and self.noHayObjetoEnPosicion(posicionEnDiagonal) )
 			{
 					 position = posicionEnDiagonal
 				
@@ -32,23 +32,23 @@ object pelota{
 			
 			else	{			
 					
-					if(self.hayObjetoEnPosicion(posicionEnDiagonal) and not self.hayObjetoEnPosicion(posicionParaChocar1) and not self.hayObjetoEnPosicion(posicionParaChocar2)) 
+					if(self.hayObjetoEnPosicion(posicionEnDiagonal) and not self.hayObjetoEnPosicion(posicionEnVertical) and not self.hayObjetoEnPosicion(posicionEnHorizontal)) 
 					{
 						
 					self.cambiarParametrosPorColision(posicionEnDiagonal)
 					
 						}
 					
-					if(self.hayObjetoEnPosicion(posicionParaChocar1)) 
+					if(self.hayObjetoEnPosicion(posicionEnVertical)) 
 						{
 						
-					self.cambiarParametrosPorColision(posicionParaChocar1)
+					self.cambiarParametrosPorColision(posicionEnVertical)
 					
 						}
-					if(self.hayObjetoEnPosicion(posicionParaChocar2)) 
+					if(self.hayObjetoEnPosicion(posicionEnHorizontal)) 
 					{
 						
-					self.cambiarParametrosPorColision(posicionParaChocar2)
+					self.cambiarParametrosPorColision(posicionEnHorizontal)
 					
 					}
 					
