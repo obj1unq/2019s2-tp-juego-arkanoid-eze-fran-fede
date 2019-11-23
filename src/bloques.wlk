@@ -29,7 +29,7 @@ class BloqueAzul inherits Bloques{
 	
 	override method efecto(){
 		super()
-		var nuevoPoder = new ExtraVida (position = self.position() )
+		var nuevoPoder = new Encoger (position = self.position() )
 		game.addVisual(nuevoPoder)
 		nuevoPoder.moverse()
 		

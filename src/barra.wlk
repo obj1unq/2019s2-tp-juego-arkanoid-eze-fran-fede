@@ -2,8 +2,8 @@ import wollok.game.*
 import direcciones.*
 
 
-object barra{
-	var property position = new Position(x = 4, y = 1)
+class Barra{
+	var property position //= new Position(x = 4, y = 0)
 	
 	method image() = "BarraNormal0.png"
 	
@@ -20,3 +20,15 @@ object barra{
 		position = unaPosicion
 	}
 }
+/*
+class Normal inherits Barra {
+	
+	var property cosas = [ new Barra(position = new Position(x = position.x(), y = 0))]
+	
+	method dibujarBarras(){
+		game.addVisual(cosas.first())
+	}
+	
+}
+
+*/

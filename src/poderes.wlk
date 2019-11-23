@@ -29,6 +29,19 @@ class ExtraVida inherits Poder{
 	}
 }
 
+class Encoger inherits Poder{
+	
+	override method image() = "Poder_04_Encoger.png"
+	
+	override method efectoPowerUp(){
+		
+		if(not nivel0.barraChicaActivada()){
+			nivel0.borrarUnaParteDeLaBarra()
+			nivel0.barraChicaActivada(true)
+		}
+	}
+}
+
 
 /*
 class TripleBola inherits Poder{
@@ -51,14 +64,7 @@ class Expandir inherits Poder{
 	}
 }
 
-class Encoger inherits Poder{
-	
-	override method image() = "Poder_04_Encoger.png"
-	
-	override method efectoPowerUp(){
-		
-	}
-}
+
 
 class Laser inherits Poder{
 	

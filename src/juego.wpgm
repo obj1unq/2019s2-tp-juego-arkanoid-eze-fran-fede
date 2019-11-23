@@ -4,7 +4,7 @@ import nivel0.*
 program Arkanoid {
 	game.title("Arkanoid")
 	game.height(14)
-	game.width(10)
+	game.width(15)
 	game.boardGround("Fondo.png")
 
   
