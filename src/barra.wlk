@@ -3,7 +3,7 @@ import direcciones.*
 
 
 class Barra{
-	var property position //= new Position(x = 4, y = 0)
+	var property position 
 	
 	method image() = "BarraNormal0.png"
 	
@@ -20,15 +20,4 @@ class Barra{
 		position = unaPosicion
 	}
 }
-/*
-class Normal inherits Barra {
-	
-	var property cosas = [ new Barra(position = new Position(x = position.x(), y = 0))]
-	
-	method dibujarBarras(){
-		game.addVisual(cosas.first())
-	}
-	
-}
 
-*/

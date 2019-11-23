@@ -36,7 +36,7 @@ class Encoger inherits Poder{
 	override method efectoPowerUp(){
 		
 		if(not nivel0.barraChicaActivada()){
-			nivel0.borrarUnaParteDeLaBarra()
+			nivel0.colocarBarraChica()
 			nivel0.barraChicaActivada(true)
 		}
 	}
@@ -44,6 +44,24 @@ class Encoger inherits Poder{
 
 
 /*
+class Expandir inherits Poder{
+	
+	override method image() = "Poder_03_Expandir.png"
+	
+	override method efectoPowerUp(){
+	
+		game.say(self, "rock")
+ 		
+		if(nivel0.barraChicaActivada()){
+			nivel0.colocarBarraNormal()
+			nivel0.barraChicaActivada(false)
+		}	
+		
+	}
+}
+
+
+
 class TripleBola inherits Poder{
 	
 	override method image() = "Poder_02_TripleBola.png"
@@ -55,16 +73,6 @@ class TripleBola inherits Poder{
 }
 
 /*
-class Expandir inherits Poder{
-	
-	override method image() = "Poder_03_Expandir.png"
-	
-	override method efectoPowerUp(){
-		
-	}
-}
-
-
 
 class Laser inherits Poder{
 	
