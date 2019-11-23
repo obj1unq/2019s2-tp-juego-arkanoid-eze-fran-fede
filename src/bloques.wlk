@@ -1,5 +1,6 @@
 import direcciones.*
 import wollok.game.*
+import poderes.*
 
 class Bloques{
 	var property position 
@@ -13,7 +14,7 @@ class Bloques{
 	
 	method cambiarBrujula(unaPelota) {
 		 unaPelota.vaAlNorte(false)
-		 }
+	 }
 	
 }
 
@@ -25,6 +26,14 @@ class BloqueAmarillo inherits Bloques{
 class BloqueAzul inherits Bloques{
 
 	method image() = "BloqueAzul.png"
+	
+	override method efecto(){
+		super()
+		var nuevoPoder = new ExtraVida (position = self.position() )
+		game.addVisual(nuevoPoder)
+		nuevoPoder.moverse()
+		
+	}
 }
 
 class BloqueFucsia inherits Bloques{

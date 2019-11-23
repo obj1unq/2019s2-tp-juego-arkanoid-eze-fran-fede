@@ -3,6 +3,7 @@ import muros.*
 import bloques.*
 import barra.*
 import direcciones.*
+import poderes.*
 
 object pelota{
 	var property position = new Position(x = 3, y = 3)

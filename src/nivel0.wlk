@@ -74,18 +74,21 @@ object nivel0 {
 		
 		primeraFilaBloques.forEach { p => self.dibujarCelda(new BloqueAmarillo(position = p))}	
 		
-		segundaFilaBloques.forEach { p => self.dibujarCelda(new BloqueAzul(position = p))}
+		segundaFilaBloques.forEach { p => self.dibujarCelda(new BloqueFucsia(position = p))}
 		
-		tercerFilaBloques.forEach { p => self.dibujarCelda(new BloqueFucsia(position = p))}
+		tercerFilaBloques.forEach { p => self.dibujarCelda(new BloqueAzul(position = p))}
 		
 				
 		game.addVisual(pelota)		
 		game.addVisualCharacter(barra)
+//		game.addVisual(poder)
 		
 		game.onTick(200, "movimiento", { pelota.siguientePosicion()
 										 self.descontarVida()
 										 self.gameOver()
 										})
+										
+		game.onCollideDo(barra, {objeto => objeto.efectoPowerUp()})
 	
 	}
 

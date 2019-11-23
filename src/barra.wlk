@@ -14,5 +14,7 @@ object barra{
 	}
 	method cambiarBrujula(unaPelota) {
 		 unaPelota.vaAlNorte(true)
-		 }
+	}
+	
+	
 }

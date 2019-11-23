@@ -44,3 +44,9 @@ object surEste{
 			proximaPosicionHorizontal = posicionActual.right(1)
 	}
 }
+
+object sur{
+	
+	method cambiarPosicion(posicionActual) = posicionActual.down(1)
+
+}
