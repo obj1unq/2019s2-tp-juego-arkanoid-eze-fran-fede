@@ -1,5 +1,6 @@
 import wollok.game.*
 import direcciones.*
+import nivel0.*
 
 class Poder {
 	
@@ -24,10 +25,63 @@ class ExtraVida inherits Poder{
 	override method image() = "Poder_01_ExtraVida.png"
 	
 	override method efectoPowerUp(){
-		game.say(self, "rock")
+		nivel0.agregarVida()
 	}
 }
 
+
+/*
+class TripleBola inherits Poder{
+	
+	override method image() = "Poder_02_TripleBola.png"
+	
+	override method efectoPowerUp(){
+	
+	
+	}
+}
+
+/*
+class Expandir inherits Poder{
+	
+	override method image() = "Poder_03_Expandir.png"
+	
+	override method efectoPowerUp(){
+		
+	}
+}
+
+class Encoger inherits Poder{
+	
+	override method image() = "Poder_04_Encoger.png"
+	
+	override method efectoPowerUp(){
+		
+	}
+}
+
+class Laser inherits Poder{
+	
+	override method image() = "Poder_05_Laser.png"
+	
+	override method efectoPowerUp(){
+		
+	}
+}
+
+
+
+class Borracha inherits Poder{
+	
+	override method image() = "Poder_06_Borracha.png"
+	
+	override method efectoPowerUp(){
+		
+	}
+}
+
+
+*/
 
 
 

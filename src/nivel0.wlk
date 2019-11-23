@@ -30,6 +30,10 @@ object nivel0 {
 			pelota.vaAlEste(true)
 			}
 	}
+	
+	method agregarVida(){
+		vidas += 1
+	}
 
 	
 	method cargar() {
@@ -79,7 +83,7 @@ object nivel0 {
 		tercerFilaBloques.forEach { p => self.dibujarCelda(new BloqueAzul(position = p))}
 		
 				
-		game.addVisual(pelota)		
+		game.addVisual(pelota)
 		game.addVisual(barra)
 	
 		keyboard.right().onPressDo { barra.nuevaPosision(este.cambiarPosicion(barra.position())) }
