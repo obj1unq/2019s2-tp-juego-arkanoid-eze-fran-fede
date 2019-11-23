@@ -16,8 +16,11 @@ class Barra{
 		 unaPelota.vaAlNorte(true)
 	}
 	
-	method nuevaPosision(unaPosicion){
-		position = unaPosicion
+	method nuevaPosision(unaPosicion){		
+		position = unaPosicion		
+		
 	}
+	
+	method efectoPowerUp() {}
 }
 

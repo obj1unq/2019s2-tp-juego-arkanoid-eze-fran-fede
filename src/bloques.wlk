@@ -38,7 +38,9 @@ class BloqueAzul inherits Bloques{
 	}
 	
 	method generarBloqueAleatorio(){
-		return [new Encoger (position = self.position() ) , new ExtraVida (position = self.position() )].anyOne()
+		return [new Encoger (position = self.position() ) , new ExtraVida (position = self.position() ),
+				new Expandir (position = self.position() )			
+		].anyOne()
 	}
 }
 

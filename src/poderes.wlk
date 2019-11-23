@@ -43,24 +43,29 @@ class Encoger inherits Poder{
 }
 
 
-/*
+
 class Expandir inherits Poder{
 	
 	override method image() = "Poder_03_Expandir.png"
 	
 	override method efectoPowerUp(){
-	
-		game.say(self, "rock")
  		
 		if(nivel0.barraChicaActivada()){
 			nivel0.colocarBarraNormal()
 			nivel0.barraChicaActivada(false)
-		}	
+		}else{
+			
+			
+		}
+		
+		
+		
+			
 		
 	}
 }
 
-
+/*
 
 class TripleBola inherits Poder{
 	

@@ -9,12 +9,16 @@ import direcciones.*
 object nivel0 {
 	var property vidas = 3
 	
-	var barra2 = new Barra(position = new Position(x = 9, y = 0))
+	var barraMedio = new Barra(position = new Position(x = 9, y = 0))
 	
-	var barra1 = new Barra(position = new Position(x = barra2.position().x() - 1, y = 0))
+	var barra1Izq = new Barra(position = new Position(x = barraMedio.position().x() - 1, y = 0))
 	
-	var barra3 = new Barra(position = new Position(x = barra2.position().x() + 1, y = 0))
+	var barra1Der = new Barra(position = new Position(x = barraMedio.position().x() + 1, y = 0))
+/* 	
+	var barra2Izq = new Barra(position = new Position(x = barraMedio.position().x() - 2, y = 0))
 	
+	var barra2Der = new Barra(position = new Position(x = barraMedio.position().x() + 2, y = 0))
+*/	
 	var property barraChicaActivada = false
 	
 	var property numeroDeBloques
@@ -79,51 +83,49 @@ object nivel0 {
 		var primeraFilaBloques = []
 		var segundaFilaBloques = []
 		var tercerFilaBloques = []
-		(1 .. ancho-1).forEach{n => primeraFilaBloques.add(new Position(x=n, y=largo-1))}
+		(1 .. ancho/2).forEach{n => primeraFilaBloques.add(new Position(x=n, y=largo-1))}
 		
-		(1 .. ancho-1).forEach{n => segundaFilaBloques.add(new Position(x=n, y=largo-2))}
+		(ancho/2 + 1 .. ancho-1).forEach{n => segundaFilaBloques.add(new Position(x=n, y=largo-1))}
 		
-		(1 .. ancho-1).forEach{n => tercerFilaBloques.add(new Position(x=n, y=largo-3))}
+		(1 .. ancho-1).forEach{n => tercerFilaBloques.add(new Position(x=n, y=largo-2))}
 		
-		primeraFilaBloques.forEach { p => self.dibujarBloque(new BloqueAmarillo(position = p))}	
+		primeraFilaBloques.forEach { p => self.dibujarCelda(new BloqueAmarillo(position = p))}	
 		
-		segundaFilaBloques.forEach { p => self.dibujarBloque(new BloqueFucsia(position = p))}
+		segundaFilaBloques.forEach { p => self.dibujarCelda(new BloqueFucsia(position = p))}
 		
-		tercerFilaBloques.forEach { p => self.dibujarBloque(new BloqueAzul(position = p))}
+		tercerFilaBloques.forEach { p => self.dibujarCelda(new BloqueAzul(position = p))}
 		
 		
 		self.numeroDeBloques(primeraFilaBloques.size() + segundaFilaBloques.size() + tercerFilaBloques.size())
 		
-
+// 	BARRA
 				
 		game.addVisual(pelota)
 		
-		self.dibujarBarra(barra1)
-		self.dibujarBarra(barra2)
-		self.dibujarBarra(barra3)
+		self.dibujarBarra(barraMedio)
+		self.dibujarBarra(barra1Izq)
+		self.dibujarBarra(barra1Der)
 		
-		game.onTick(200, "movimiento", { pelota.siguientePosicion()
-										 self.descontarVida()
-										 self.gameOver()
-										 self.gameWon()
+//  INTERACCION
+		
+		game.onTick(200, "movimientoDeLaPelota", { pelota.siguientePosicion()
+													 self.descontarVida()
+													 self.gameOver()
+										 			 self.gameWon()
 										})
 									
-		game.onCollideDo(barra1, {objeto => objeto.efectoPowerUp()})
-		game.onCollideDo(barra2, {objeto => objeto.efectoPowerUp()})
-		game.onCollideDo(barra3, {objeto => objeto.efectoPowerUp()})
-		
-
-	}
-	method dibujarCelda(dibujo){
-		game.addVisual(dibujo)
-		
+		game.onCollideDo(barraMedio, {objeto => objeto.efectoPowerUp()})
+		game.onCollideDo(barra1Izq, {objeto => objeto.efectoPowerUp()})
+		game.onCollideDo(barra1Der, {objeto => objeto.efectoPowerUp()})
+/*		
+		game.whenCollideDo(barra2Izq, {objeto => objeto.efectoPowerUp()})
+		game.onCollideDo(barra2Der, {objeto => objeto.efectoPowerUp()})
+*/
 	}
 	
-
-	method dibujarBloque(dibujo) {
+	method dibujarCelda(dibujo){
 		game.addVisual(dibujo)
 	}
-
 	
 	method dibujarBarra(dibujo){
 		game.addVisual(dibujo)
@@ -133,13 +135,19 @@ object nivel0 {
 	
 	method colocarBarraChica(){
 		
-		game.removeVisual(barra1)
-		game.removeVisual(barra3)
+		game.removeVisual(barra1Izq)
+		game.removeVisual(barra1Der)
 	}
-/*	
+	
 	method colocarBarraNormal(){
-		game.addVisual(barra1)
-		game.addVisual(barra3)
+		game.addVisual(barra1Izq)
+		game.addVisual(barra1Der)
+		
+	}
+/* 	
+	method colocarBarraGrande(){
+		game.addVisual(barra2Izq)
+		game.addVisual(barra2Der)
 	}
 */
 	method unoBloqueMenos(){
