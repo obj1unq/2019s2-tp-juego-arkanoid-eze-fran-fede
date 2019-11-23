@@ -16,5 +16,7 @@ object barra{
 		 unaPelota.vaAlNorte(true)
 	}
 	
-	
+	method nuevaPosision(unaPosicion){
+		position = unaPosicion
+	}
 }

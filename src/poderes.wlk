@@ -3,7 +3,7 @@ import direcciones.*
 
 class Poder {
 	
-	var property position // = new Position(x = 2, y = 2)
+	var property position 
 	
 	method image()
 	
@@ -27,4 +27,8 @@ class ExtraVida inherits Poder{
 		game.say(self, "rock")
 	}
 }
+
+
+
+
 

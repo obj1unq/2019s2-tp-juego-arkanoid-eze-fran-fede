@@ -80,8 +80,12 @@ object nivel0 {
 		
 				
 		game.addVisual(pelota)		
-		game.addVisualCharacter(barra)
-//		game.addVisual(poder)
+		game.addVisual(barra)
+	
+		keyboard.right().onPressDo { barra.nuevaPosision(este.cambiarPosicion(barra.position())) }
+		keyboard.left().onPressDo { barra.nuevaPosision(oeste.cambiarPosicion(barra.position())) }
+		
+		
 		
 		game.onTick(200, "movimiento", { pelota.siguientePosicion()
 										 self.descontarVida()

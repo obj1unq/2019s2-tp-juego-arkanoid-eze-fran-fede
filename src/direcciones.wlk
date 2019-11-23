@@ -48,5 +48,14 @@ object surEste{
 object sur{
 	
 	method cambiarPosicion(posicionActual) = posicionActual.down(1)
+}
 
+object este{
+	
+	method cambiarPosicion(posicionActual) = posicionActual.right(1)
+}
+
+object oeste{
+	
+	method cambiarPosicion(posicionActual) = posicionActual.left(1)
 }
