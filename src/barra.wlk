@@ -16,9 +16,12 @@ class Barra{
 		 unaPelota.vaAlNorte(true)
 	}
 	
-	method nuevaPosision(unaPosicion){		
-		position = unaPosicion		
-		
+	method nuevaPosisionEste(unaPosicion){		
+		position = game.at(13.min(unaPosicion.x()), unaPosicion.y())		
+	}
+	
+	method nuevaPosisionOeste(unaPosicion){		
+		position = game.at(1.max(unaPosicion.x()), unaPosicion.y())		
 	}
 	
 	method efectoPowerUp() {}

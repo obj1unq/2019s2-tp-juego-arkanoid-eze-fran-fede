@@ -66,8 +66,7 @@ class Expandir inherits Poder{
 			
 		
 	}
-}
-
+} 
 /*
 class TripleBola inherits Poder{
 	
@@ -86,13 +85,20 @@ class Laser inherits Poder{
 	override method efectoPowerUp(){
 		
 	}
-}
+}*/
 class Borracha inherits Poder{
 	
 	override method image() = "Poder_06_Borracha.png"
 	
 	override method efectoPowerUp(){
-		
+		if(not nivel0.barraBorracha()){	nivel0.barraBorracha(true)
+										nivel0.cambiarDireccion()
+									
+		}					
+			else{	nivel0.barraBorracha(false)
+					nivel0.direccionNormal()
+					
+		}
 	}
+
 }
-*/

@@ -23,6 +23,12 @@ object nivel0 {
 	
 	var property numeroDeBloques
 	
+	var property barraBorracha = false
+	
+	var property direccionEste = este
+	
+	var property direccionOeste = oeste 
+	
 	method gameOver() = if(self.vidas() == 0) game.stop()
 						else {}
 	
@@ -108,7 +114,7 @@ object nivel0 {
 		
 //  INTERACCION
 		
-		game.onTick(200, "movimientoDeLaPelota", { pelota.siguientePosicion()
+		game.onTick(100, "movimientoDeLaPelota", { pelota.siguientePosicion()
 													 self.descontarVida()
 													 self.gameOver()
 										 			 self.gameWon()
@@ -129,10 +135,33 @@ object nivel0 {
 	
 	method dibujarBarra(dibujo){
 		game.addVisual(dibujo)
-		keyboard.right().onPressDo { dibujo.nuevaPosision(este.cambiarPosicion(dibujo.position())) }
-		keyboard.left().onPressDo { dibujo.nuevaPosision(oeste.cambiarPosicion(dibujo.position())) }
+		self.configurarTeclasNormal(dibujo)
 	}
 	
+	method cambiarDireccion(){
+		direccionEste = oeste
+		direccionOeste = este
+		}
+	
+	method direccionNormal(){
+		direccionEste = este
+		direccionOeste = oeste
+	}	
+	
+//	method configurarTeclas(dibujo){
+//		if(self.barraBorracha()) self.configurarTeclasBorrachas(dibujo)
+//						else  self.configurarTeclasNormal(dibujo)
+//	}
+
+	method configurarTeclasNormal(dibujo){
+		keyboard.right().onPressDo { dibujo.nuevaPosisionEste(direccionEste.cambiarPosicion(dibujo.position())) }
+		keyboard.left().onPressDo { dibujo.nuevaPosisionOeste(direccionOeste.cambiarPosicion(dibujo.position())) }
+	}
+	
+//	method configurarTeclasBorrachas(dibujo){
+//		keyboard.right().onPressDo { dibujo.nuevaPosisionOeste(oeste.cambiarPosicion(dibujo.position())) }
+//		keyboard.left().onPressDo { dibujo.nuevaPosisionEste(este.cambiarPosicion(dibujo.position())) }
+//	}
 	method colocarBarraChica(){
 		
 		game.removeVisual(barra1Izq)
