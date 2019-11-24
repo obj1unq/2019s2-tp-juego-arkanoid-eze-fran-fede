@@ -22,4 +22,6 @@ class Barra{
 	}
 	
 	method efectoPowerUp() {}
+	
+	method sePuedeTranspasar() = false
 }

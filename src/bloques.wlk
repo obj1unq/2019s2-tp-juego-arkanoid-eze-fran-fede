@@ -17,6 +17,8 @@ class Bloques{
 	method cambiarBrujula(unaPelota) {
 		 unaPelota.vaAlNorte(false)
 	 }
+	 
+	 method sePuedeTranspasar() = false
 	
 }
 

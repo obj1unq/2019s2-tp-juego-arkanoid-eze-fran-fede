@@ -22,10 +22,15 @@ object pelota{
 		var posicionEnDiagonal = direccion.proximaPosicionDiagonal()
 		var posicionEnVertical = direccion.proximaPosicionVertical()
 		var posicionEnHorizontal = direccion.proximaPosicionHorizontal()
-		
 
 		
-		if ( self.noHayObjetoEnPosicion(posicionEnVertical) and self.noHayObjetoEnPosicion(posicionEnHorizontal) and self.noHayObjetoEnPosicion(posicionEnDiagonal) )
+		if ( self.puedePasarLaPelota(posicionEnVertical) and self.puedePasarLaPelota(posicionEnHorizontal) 
+															and self.puedePasarLaPelota(posicionEnDiagonal) 
+			
+			
+//			self.noHayObjetoEnPosicion(posicionEnVertical) and self.noHayObjetoEnPosicion(posicionEnHorizontal) 
+//															and self.noHayObjetoEnPosicion(posicionEnDiagonal) 
+		)
 			{
 					 position = posicionEnDiagonal
 				
@@ -60,9 +65,11 @@ object pelota{
 		direccion = unaDireccion
 	}
 	
-	method noHayObjetoEnPosicion(unaPosicion) = game.getObjectsIn(unaPosicion).isEmpty()
+	method noHayObjetoEnPosicion(unaPosicion) = game.getObjectsIn(unaPosicion).isEmpty() 
 	
 	method hayObjetoEnPosicion(unaPosicion) = not game.getObjectsIn(unaPosicion).isEmpty()
+	
+	method puedePasarLaPelota(unaPosicion) = if (self.hayObjetoEnPosicion(unaPosicion)) game.getObjectsIn(unaPosicion).first().sePuedeTranspasar() else true
 	
 	method cambiarParametrosPorColision(unaPosicion){
 		var objetoPorColisionar = game.getObjectsIn(unaPosicion).first()
@@ -75,4 +82,6 @@ object pelota{
 	}
 	
 	method positionY() =  position.y()
+	
+	method sePuedeTranspasar() = true
 }

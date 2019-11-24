@@ -14,6 +14,8 @@ class Pared{
 	}
 	method cambiarBrujula(unaPelota) 
 	
+	method sePuedeTranspasar() = false
+	
 }
 
 class ParedIzq inherits Pared{

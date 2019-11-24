@@ -18,6 +18,9 @@ class Poder {
 	method efectoPowerUp()
 	
 	method cambiarBrujula(unaPelota) {}
+	
+	method sePuedeTranspasar() = true	
+
 }
 
 class ExtraVida inherits Poder{
