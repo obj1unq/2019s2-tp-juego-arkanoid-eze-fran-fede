@@ -33,7 +33,7 @@ class BloqueAzul inherits Bloques{
 	
 	override method efecto(){
 		super()
-		var nuevoPoder = new TripleBola  (position = self.position())		
+		var nuevoPoder = self.generarBloqueAleatorio()
 		game.addVisual(nuevoPoder)
 		nuevoPoder.moverse()
 		
