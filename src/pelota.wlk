@@ -5,14 +5,15 @@ import barra.*
 import direcciones.*
 import poderes.*
 
-object pelota{
-	var property position = new Position(x = 3, y = 3)
+class Pelota{
+	var property position //= new Position(x = 3, y = 3)
 	var property direccion = norEste
+	var property imagen
 	
 	var property vaAlNorte = true
 	var property vaAlEste = true
 
-	method image() = "PelotaAzul.png"
+	method image() = imagen //"PelotaAzul.png"
 
 
 	method siguientePosicion()
@@ -84,4 +85,11 @@ object pelota{
 	method positionY() =  position.y()
 	
 	method sePuedeTranspasar() = true
+	
+	method cambiarBrujula(unaPelota) {}
+	
+	method redireccionarElemento(unaPelota) = if(unaPelota.vaAlEste())  norEste else norOeste 
+	
+	method efecto(){}
+	
 }

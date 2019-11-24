@@ -29,6 +29,10 @@ object nivel0 {
 	
 	var property direccionOeste = oeste 
 	
+	var property activadoTresPelotas = false
+	
+	var property pelotaAzul = new Pelota(position = new Position(x = 3, y = 3), imagen = "PelotaAzul.png")
+	
 	method gameOver() = if(self.vidas() == 0) game.stop()
 						else {}
 	
@@ -45,12 +49,12 @@ object nivel0 {
 	
  	method descontarVida(){
 
-		if(pelota.positionY() == 0 ) {
+		if(pelotaAzul.positionY() == 0 ) {
 			vidas -= 1
-			pelota.position(new Position(x = 3, y = 3))
-			pelota.direccion (norEste)
-			pelota.vaAlNorte(true)
-			pelota.vaAlEste(true)
+			pelotaAzul.position(new Position(x = 3, y = 3))
+			pelotaAzul.direccion (norEste)
+			pelotaAzul.vaAlNorte(true)
+			pelotaAzul.vaAlEste(true)
 			}
 	}
 	
@@ -106,7 +110,7 @@ object nivel0 {
 		
 // 	BARRA
 				
-		game.addVisual(pelota)
+		game.addVisual(pelotaAzul)
 		
 		self.dibujarBarra(barraMedio)
 		self.dibujarBarra(barra1Izq)
@@ -114,7 +118,7 @@ object nivel0 {
 		
 //  INTERACCION
 		
-		game.onTick(100, "movimientoDeLaPelota", { pelota.siguientePosicion()
+		game.onTick(100, "movimientoDeLaPelota", { pelotaAzul.siguientePosicion()
 													 self.descontarVida()
 													 self.gameOver()
 										 			 self.gameWon()
@@ -191,5 +195,21 @@ object nivel0 {
 		keyboard.a().onPressDo{barraMedio.disparar()}
 
 	}
+	method agregarDosPelotas(){
+		var pelotaNaranja = new Pelota(position = new Position(x = 9, y = 3), imagen = "PelotaNaranja.png") 
+		game.addVisual(pelotaNaranja)
+		game.onTick(200, "movimientoDeLaPelotaNaranja", { pelotaNaranja.siguientePosicion() } )
+		
+		var pelotaNaranja2 = new Pelota(position = new Position(x = 3, y = 3), imagen = "PelotaNaranja.png") 
+		game.addVisual(pelotaNaranja2)
+		game.onTick(200, "movimientoDeLaPelotaNaranja", { pelotaNaranja2.siguientePosicion() } )
+		
+		activadoTresPelotas = true
+		
+		
+//		game.addVisual(pelotaAzul)
+	}
+	
+	
 	
 }

@@ -67,17 +67,19 @@ class Expandir inherits Poder{
 		
 	}
 } 
-/*
+
 class TripleBola inherits Poder{
 	
 	override method image() = "Poder_02_TripleBola.png"
 	
 	override method efectoPowerUp(){
-	
-	
+		if(not nivel0.activadoTresPelotas()){
+		
+			nivel0.agregarDosPelotas()
+		
+		}
 	}
 }
-*/
 
 class Laser inherits Poder{
 	
