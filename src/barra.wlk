@@ -1,5 +1,6 @@
 import wollok.game.*
 import direcciones.*
+import laser.*
 
 
 class Barra{
@@ -27,4 +28,13 @@ class Barra{
 	method efectoPowerUp() {}
 	
 	method sePuedeTranspasar() = false
+	
+	method disparar(){
+		var nuevoLaser = new Laser(position = new Position(x = position.x(), y = 1))
+
+		game.sound("laser1.wav")
+		game.addVisual (nuevoLaser)
+		nuevoLaser.moverse()
+		
+	}
 }

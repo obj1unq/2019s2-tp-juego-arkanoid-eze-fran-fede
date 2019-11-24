@@ -182,5 +182,14 @@ object nivel0 {
 	method unoBloqueMenos(){
 		numeroDeBloques -= 1
 	}
+	method unoBloqueMas(){
+		numeroDeBloques += 1
+	}
+	
+	method barraTieneLaser(){
+		
+		keyboard.a().onPressDo{barraMedio.disparar()}
+
+	}
 	
 }

@@ -77,15 +77,18 @@ class TripleBola inherits Poder{
 	
 	}
 }
-/*
+*/
+
 class Laser inherits Poder{
 	
 	override method image() = "Poder_05_Laser.png"
 	
 	override method efectoPowerUp(){
 		
+		nivel0.barraTieneLaser()
 	}
-}*/
+}
+
 class Borracha inherits Poder{
 	
 	override method image() = "Poder_06_Borracha.png"

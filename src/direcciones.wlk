@@ -59,3 +59,7 @@ object oeste{
 	
 	method cambiarPosicion(posicionActual) = posicionActual.left(1)
 }
+object norte{
+	
+	method cambiarPosicion(posicionActual) = posicionActual.up(1)
+}

@@ -40,8 +40,11 @@ class BloqueAzul inherits Bloques{
 	}
 	
 	method generarBloqueAleatorio(){
-		return [new Encoger (position = self.position() ) , new ExtraVida (position = self.position() ),
-				new Expandir (position = self.position() ), new Borracha  (position = self.position() )			
+		return [new Encoger (position = self.position() ) 
+				, new ExtraVida (position = self.position() )
+				,new Expandir (position = self.position() )
+				, new Borracha  (position = self.position())
+				, new Laser  (position = self.position())			
 		].anyOne()
 	}
 }
@@ -54,7 +57,7 @@ class BloqueFucsia inherits Bloques{
 		game.removeVisual(self)	
 		game.sound("Golpe_03.wav")
 		game.addVisual(new BloqueAzul( position = self.position()))	
-		game.sound("Golpe_03.wav")
-		nivel0.unoBloqueMenos()
+//		game.sound("Golpe_03.wav")
+//		nivel0.unoBloqueMenos()
 	}
 }
