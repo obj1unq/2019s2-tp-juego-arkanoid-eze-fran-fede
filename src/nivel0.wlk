@@ -101,14 +101,6 @@ object nivel0 {
 // 	BARRA
 				
 		game.addVisual(pelota)
-<<<<<<< HEAD
-		game.addVisual(barra)		
-//		game.addVisualCharacter(barra)
-		config.configurarTeclas()	
-		game.onTick(100, "movimiento", { pelota.siguientePosicion()
-										 self.descontarVida()
-										 self.gameOver()
-=======
 		
 		self.dibujarBarra(barraMedio)
 		self.dibujarBarra(barra1Izq)
@@ -120,7 +112,6 @@ object nivel0 {
 													 self.descontarVida()
 													 self.gameOver()
 										 			 self.gameWon()
->>>>>>> branch 'master' of https://github.com/obj1unq/2019s2-tp-juego-arkanoid-eze-fran-fede.git
 										})
 									
 		game.onCollideDo(barraMedio, {objeto => objeto.efectoPowerUp()})
@@ -132,12 +123,7 @@ object nivel0 {
 */
 	}
 	
-<<<<<<< HEAD
-
-	method dibujarCelda(dibujo) {
-=======
 	method dibujarCelda(dibujo){
->>>>>>> branch 'master' of https://github.com/obj1unq/2019s2-tp-juego-arkanoid-eze-fran-fede.git
 		game.addVisual(dibujo)
 	}
 	
@@ -168,22 +154,4 @@ object nivel0 {
 		numeroDeBloques -= 1
 	}
 	
-}
-
-object config {
-	method configurarTeclas() {
-		if(barra.borracha()) self.configurarTeclasBorracha()
-						else self.configurarTeclasNormal()
-		}
-		
-	
-	method configurarTeclasNormal() {
-		keyboard.left().onPressDo({ barra.irAIzquierda(barra.position().left(1))})
-		keyboard.right().onPressDo({ barra.irADerecha(barra.position().right(1))})
-	}
-	
-	method configurarTeclasBorracha() {
-		keyboard.left().onPressDo({ barra.irAIzquierda(barra.position().right(1))})
-		keyboard.right().onPressDo({ barra.irADerecha(barra.position().left(1))})
-	}
 }

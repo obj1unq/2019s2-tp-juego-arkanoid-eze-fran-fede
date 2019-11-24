@@ -4,11 +4,7 @@ import nivel0.*
 
 class Poder {
 	
-<<<<<<< HEAD
-	var property position = new Position(x = 2, y = 1)
-=======
 	var property position 
->>>>>>> branch 'master' of https://github.com/obj1unq/2019s2-tp-juego-arkanoid-eze-fran-fede.git
 	
 	method image()
 	
@@ -70,7 +66,6 @@ class Expandir inherits Poder{
 }
 
 /*
-
 class TripleBola inherits Poder{
 	
 	override method image() = "Poder_02_TripleBola.png"
@@ -80,9 +75,7 @@ class TripleBola inherits Poder{
 	
 	}
 }
-
 /*
-
 class Laser inherits Poder{
 	
 	override method image() = "Poder_05_Laser.png"
@@ -91,9 +84,6 @@ class Laser inherits Poder{
 		
 	}
 }
-
-
-
 class Borracha inherits Poder{
 	
 	override method image() = "Poder_06_Borracha.png"
@@ -102,10 +92,4 @@ class Borracha inherits Poder{
 		
 	}
 }
-
-
 */
-
-
-
-

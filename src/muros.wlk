@@ -61,5 +61,4 @@ class ParedAbajo inherits Pared{
 	}
 	override method cambiarBrujula(unaPelota) {}
 }
-
 */
