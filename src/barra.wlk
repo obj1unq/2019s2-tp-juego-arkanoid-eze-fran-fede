@@ -2,9 +2,15 @@ import wollok.game.*
 import direcciones.*
 
 
+<<<<<<< HEAD
 object barra{
 	var property position = new Position(x = 4, y = 1)
 	var property borracha = false
+=======
+class Barra{
+	var property position 
+	
+>>>>>>> branch 'master' of https://github.com/obj1unq/2019s2-tp-juego-arkanoid-eze-fran-fede.git
 	method image() = "BarraNormal0.png"
 	
 	
@@ -23,5 +29,13 @@ object barra{
 	}
 	method cambiarBrujula(unaPelota) {
 		 unaPelota.vaAlNorte(true)
-		 }
+	}
+	
+	method nuevaPosision(unaPosicion){		
+		position = unaPosicion		
+		
+	}
+	
+	method efectoPowerUp() {}
 }
+

@@ -9,9 +9,26 @@ import direcciones.*
 object nivel0 {
 	var property vidas = 3
 	
+	var barraMedio = new Barra(position = new Position(x = 9, y = 0))
+	
+	var barra1Izq = new Barra(position = new Position(x = barraMedio.position().x() - 1, y = 0))
+	
+	var barra1Der = new Barra(position = new Position(x = barraMedio.position().x() + 1, y = 0))
+/* 	
+	var barra2Izq = new Barra(position = new Position(x = barraMedio.position().x() - 2, y = 0))
+	
+	var barra2Der = new Barra(position = new Position(x = barraMedio.position().x() + 2, y = 0))
+*/	
+	var property barraChicaActivada = false
+	
+	var property numeroDeBloques
+	
 	method gameOver() = if(self.vidas() == 0) game.stop()
 						else {}
-						
+	
+	
+	method gameWon() = if(numeroDeBloques == 0)	game.stop()	
+						else {}	
 /* 	
 		method gameOver() = if(self.vidas() == 0) { 
 							game.boardGround("FondeGameOver.png")
@@ -30,6 +47,10 @@ object nivel0 {
 			pelota.vaAlEste(true)
 			}
 	}
+	
+	method agregarVida(){
+		vidas += 1
+	}
 
 	
 	method cargar() {
@@ -41,15 +62,13 @@ object nivel0 {
 		var posParedesArriba = []
 		var posParedesDerecha = []
 		var posParedesIzquierda = []
-//		var posParedesAbajo = []
 		
 		(0 .. ancho).forEach{ n => posParedesArriba.add(new Position(x=n, y=largo)) } // bordeArriba 
 		
-		(0 .. largo).forEach{ n => posParedesDerecha.add(new Position(x=ancho, y=n)) } // bordeDer
+		(1 .. largo).forEach{ n => posParedesDerecha.add(new Position(x=ancho, y=n)) } // bordeDer
 	
-		(0 .. largo).forEach{ n => posParedesIzquierda.add(new Position(x=0, y=n)) } // bordeIzq 
+		(1 .. largo).forEach{ n => posParedesIzquierda.add(new Position(x=0, y=n)) } // bordeIzq 
 		
-//		(0 .. ancho).forEach{ n => posParedesAbajo.add(new Position(x=n, y=0)) } // bordeAbajo 
 		
 
 		posParedesArriba.forEach { p => self.dibujarCelda(new ParedArriba(position = p))}	
@@ -58,41 +77,95 @@ object nivel0 {
 		
 		posParedesIzquierda.forEach { p => self.dibujarCelda(new ParedIzq(position = p))}	
 		
-//		posParedesAbajo.forEach { p => self.dibujarCelda(new ParedAbajo(position = p))}	
-		
 //	BLOQUES
 
  
 		var primeraFilaBloques = []
 		var segundaFilaBloques = []
 		var tercerFilaBloques = []
-		(1 .. 8).forEach{n => primeraFilaBloques.add(new Position(x=n, y=largo-1))}
+		(1 .. ancho/2).forEach{n => primeraFilaBloques.add(new Position(x=n, y=largo-1))}
 		
-		(1 .. 8).forEach{n => segundaFilaBloques.add(new Position(x=n, y=largo-2))}
+		(ancho/2 + 1 .. ancho-1).forEach{n => segundaFilaBloques.add(new Position(x=n, y=largo-1))}
 		
-		(1 .. 8).forEach{n => tercerFilaBloques.add(new Position(x=n, y=largo-3))}
+		(1 .. ancho-1).forEach{n => tercerFilaBloques.add(new Position(x=n, y=largo-2))}
 		
 		primeraFilaBloques.forEach { p => self.dibujarCelda(new BloqueAmarillo(position = p))}	
 		
-		segundaFilaBloques.forEach { p => self.dibujarCelda(new BloqueAzul(position = p))}
+		segundaFilaBloques.forEach { p => self.dibujarCelda(new BloqueFucsia(position = p))}
 		
-		tercerFilaBloques.forEach { p => self.dibujarCelda(new BloqueFucsia(position = p))}
+		tercerFilaBloques.forEach { p => self.dibujarCelda(new BloqueAzul(position = p))}
 		
+		
+		self.numeroDeBloques(primeraFilaBloques.size() + segundaFilaBloques.size() + tercerFilaBloques.size())
+		
+// 	BARRA
 				
 		game.addVisual(pelota)
+<<<<<<< HEAD
 		game.addVisual(barra)		
 //		game.addVisualCharacter(barra)
 		config.configurarTeclas()	
 		game.onTick(100, "movimiento", { pelota.siguientePosicion()
 										 self.descontarVida()
 										 self.gameOver()
+=======
+		
+		self.dibujarBarra(barraMedio)
+		self.dibujarBarra(barra1Izq)
+		self.dibujarBarra(barra1Der)
+		
+//  INTERACCION
+		
+		game.onTick(200, "movimientoDeLaPelota", { pelota.siguientePosicion()
+													 self.descontarVida()
+													 self.gameOver()
+										 			 self.gameWon()
+>>>>>>> branch 'master' of https://github.com/obj1unq/2019s2-tp-juego-arkanoid-eze-fran-fede.git
 										})
-	
+									
+		game.onCollideDo(barraMedio, {objeto => objeto.efectoPowerUp()})
+		game.onCollideDo(barra1Izq, {objeto => objeto.efectoPowerUp()})
+		game.onCollideDo(barra1Der, {objeto => objeto.efectoPowerUp()})
+/*		
+		game.whenCollideDo(barra2Izq, {objeto => objeto.efectoPowerUp()})
+		game.onCollideDo(barra2Der, {objeto => objeto.efectoPowerUp()})
+*/
 	}
 	
+<<<<<<< HEAD
 
 	method dibujarCelda(dibujo) {
+=======
+	method dibujarCelda(dibujo){
+>>>>>>> branch 'master' of https://github.com/obj1unq/2019s2-tp-juego-arkanoid-eze-fran-fede.git
 		game.addVisual(dibujo)
+	}
+	
+	method dibujarBarra(dibujo){
+		game.addVisual(dibujo)
+		keyboard.right().onPressDo { dibujo.nuevaPosision(este.cambiarPosicion(dibujo.position())) }
+		keyboard.left().onPressDo { dibujo.nuevaPosision(oeste.cambiarPosicion(dibujo.position())) }
+	}
+	
+	method colocarBarraChica(){
+		
+		game.removeVisual(barra1Izq)
+		game.removeVisual(barra1Der)
+	}
+	
+	method colocarBarraNormal(){
+		game.addVisual(barra1Izq)
+		game.addVisual(barra1Der)
+		
+	}
+/* 	
+	method colocarBarraGrande(){
+		game.addVisual(barra2Izq)
+		game.addVisual(barra2Der)
+	}
+*/
+	method unoBloqueMenos(){
+		numeroDeBloques -= 1
 	}
 	
 }

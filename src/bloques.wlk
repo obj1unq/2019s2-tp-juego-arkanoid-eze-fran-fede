@@ -1,5 +1,7 @@
 import direcciones.*
 import wollok.game.*
+import poderes.*
+import nivel0.*
 
 class Bloques{
 	var property position 
@@ -9,11 +11,12 @@ class Bloques{
 	method efecto(){
 		game.removeVisual(self)	
 		game.sound("Golpe_03.wav")
+		nivel0.unoBloqueMenos()
 	}
 	
 	method cambiarBrujula(unaPelota) {
 		 unaPelota.vaAlNorte(false)
-		 }
+	 }
 	
 }
 
@@ -25,6 +28,20 @@ class BloqueAmarillo inherits Bloques{
 class BloqueAzul inherits Bloques{
 
 	method image() = "BloqueAzul.png"
+	
+	override method efecto(){
+		super()
+		var nuevoPoder = self.generarBloqueAleatorio()
+		game.addVisual(nuevoPoder)
+		nuevoPoder.moverse()
+		
+	}
+	
+	method generarBloqueAleatorio(){
+		return [new Encoger (position = self.position() ) , new ExtraVida (position = self.position() ),
+				new Expandir (position = self.position() )			
+		].anyOne()
+	}
 }
 
 class BloqueFucsia inherits Bloques{
