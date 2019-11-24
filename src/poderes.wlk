@@ -2,7 +2,7 @@ import wollok.game.*
 
 object poder {
 	
-	var property position = new Position(x = 2, y = 2)
+	var property position = new Position(x = 2, y = 1)
 	
 	method image() = "Poder_03_Expandir.png"
 	

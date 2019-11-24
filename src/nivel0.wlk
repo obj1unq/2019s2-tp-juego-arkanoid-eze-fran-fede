@@ -79,18 +79,38 @@ object nivel0 {
 		tercerFilaBloques.forEach { p => self.dibujarCelda(new BloqueFucsia(position = p))}
 		
 				
-		game.addVisual(pelota)		
-		game.addVisualCharacter(barra)
-		
-		game.onTick(200, "movimiento", { pelota.siguientePosicion()
+		game.addVisual(pelota)
+		game.addVisual(barra)		
+//		game.addVisualCharacter(barra)
+		config.configurarTeclas()	
+		game.onTick(100, "movimiento", { pelota.siguientePosicion()
 										 self.descontarVida()
 										 self.gameOver()
 										})
 	
 	}
+	
 
 	method dibujarCelda(dibujo) {
 		game.addVisual(dibujo)
 	}
 	
+}
+
+object config {
+	method configurarTeclas() {
+		if(barra.borracha()) self.configurarTeclasBorracha()
+						else self.configurarTeclasNormal()
+		}
+		
+	
+	method configurarTeclasNormal() {
+		keyboard.left().onPressDo({ barra.irAIzquierda(barra.position().left(1))})
+		keyboard.right().onPressDo({ barra.irADerecha(barra.position().right(1))})
+	}
+	
+	method configurarTeclasBorracha() {
+		keyboard.left().onPressDo({ barra.irAIzquierda(barra.position().right(1))})
+		keyboard.right().onPressDo({ barra.irADerecha(barra.position().left(1))})
+	}
 }
