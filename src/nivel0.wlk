@@ -31,19 +31,21 @@ object nivel0 {
 	
 	var property pelotaAzul = new Pelota(position = new Position(x = 3, y = 3), imagen = "PelotaAzul.png")
 	
-	method gameOver() = if(self.vidas() == 0) game.stop()
+	method gameOverSimple() = if(self.vidas() == 0) game.stop()
 						else {}
 	
 	
 	method gameWon() = if(numeroDeBloques == 0)	game.stop()	
 						else {}	
-/* 	
-		method gameOver() = if(self.vidas() == 0) { 
-							game.boardGround("FondeGameOver.png")
-		//					game.onTick(3000, "gameOver", game.stop())
+
+	method gameOverCheto() = if(self.vidas() == 0) { 
+							game.clear()
+							game.addVisual(imagenGameOver)
+							
+							game.schedule(2000, {game.stop()})
 							}
 						else {}
-*/	
+
 	
  	method descontarVida(){
 
@@ -120,7 +122,7 @@ object nivel0 {
 		
 		game.onTick(100, "movimientoDeLaPelota", { pelotaAzul.siguientePosicion()
 													 self.descontarVida()
-													 self.gameOver()
+													 self.gameOverCheto()
 										 			 self.gameWon()
 										})
 									
@@ -202,7 +204,12 @@ object nivel0 {
 		
 		
 	}
+
+}
+
+object imagenGameOver{
+	var property position = game.origin()
 	
 	
-	
+	method image()= "FondeGameOver.png"
 }
