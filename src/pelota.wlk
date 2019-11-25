@@ -6,14 +6,14 @@ import direcciones.*
 import poderes.*
 
 class Pelota{
-	var property position //= new Position(x = 3, y = 3)
+	var property position 
 	var property direccion = norEste
 	var property imagen
 	
 	var property vaAlNorte = true
 	var property vaAlEste = true
 
-	method image() = imagen //"PelotaAzul.png"
+	method image() = imagen 
 
 
 	method siguientePosicion()
@@ -27,11 +27,7 @@ class Pelota{
 		
 		if ( self.puedePasarLaPelota(posicionEnVertical) and self.puedePasarLaPelota(posicionEnHorizontal) 
 															and self.puedePasarLaPelota(posicionEnDiagonal) 
-			
-			
-//			self.noHayObjetoEnPosicion(posicionEnVertical) and self.noHayObjetoEnPosicion(posicionEnHorizontal) 
-//															and self.noHayObjetoEnPosicion(posicionEnDiagonal) 
-		)
+			)
 			{
 					 position = posicionEnDiagonal
 				
@@ -91,5 +87,7 @@ class Pelota{
 	method redireccionarElemento(unaPelota) = if(unaPelota.vaAlEste())  norEste else norOeste 
 	
 	method efecto(){}
+	
+	method efectoPowerUp() {}
 	
 }

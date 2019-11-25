@@ -16,11 +16,7 @@ object nivel0 {
 	var barra1Izq = new Barra(position = new Position(x = barraMedio.position().x() - 1, y = 0))
 	
 	var barra1Der = new Barra(position = new Position(x = barraMedio.position().x() + 1, y = 0))
-/* 	
-	var barra2Izq = new Barra(position = new Position(x = barraMedio.position().x() - 2, y = 0))
-	
-	var barra2Der = new Barra(position = new Position(x = barraMedio.position().x() + 2, y = 0))
-*/	
+
 	var property barraChicaActivada = false
 	
 	var property numeroDeBloques
@@ -57,11 +53,13 @@ object nivel0 {
 			pelotaAzul.direccion (norEste)
 			pelotaAzul.vaAlNorte(true)
 			pelotaAzul.vaAlEste(true)
+			game.say(barraMedio, "Una Vida Menos")
 			}
 	}
 	
 	method agregarVida(){
 		vidas += 1
+		game.say(barraMedio, "Una Vida Mas")
 	}
 
 	
@@ -129,10 +127,7 @@ object nivel0 {
 		game.onCollideDo(barraMedio, {objeto => objeto.efectoPowerUp()})
 		game.onCollideDo(barra1Izq, {objeto => objeto.efectoPowerUp()})
 		game.onCollideDo(barra1Der, {objeto => objeto.efectoPowerUp()})
-/*		
-		game.whenCollideDo(barra2Izq, {objeto => objeto.efectoPowerUp()})
-		game.onCollideDo(barra2Der, {objeto => objeto.efectoPowerUp()})
-*/
+
 	}
 	
 	method dibujarCelda(dibujo){
@@ -156,8 +151,8 @@ object nivel0 {
 	
 
 	method configurarTeclasNormal(dibujo){
-		keyboard.right().onPressDo { dibujo.nuevaPosisionEste(direccionEste.cambiarPosicion(dibujo.position())) }
-		keyboard.left().onPressDo { dibujo.nuevaPosisionOeste(direccionOeste.cambiarPosicion(dibujo.position())) }
+		keyboard.right().onPressDo { dibujo.nuevaPosision(direccionEste.cambiarPosicion(dibujo.position())) }
+		keyboard.left().onPressDo { dibujo.nuevaPosision(direccionOeste.cambiarPosicion(dibujo.position())) }
 	}
 	
 

@@ -21,7 +21,6 @@ class Laser {
 		if (self.hayObjetoEnPosicion(posicionNorte)) 
 		{
 		 	game.getObjectsIn(posicionNorte).first().efecto()
-		
 		}
 	}
 	

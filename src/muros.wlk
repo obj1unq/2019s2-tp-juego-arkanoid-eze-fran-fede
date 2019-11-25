@@ -16,6 +16,8 @@ class Pared{
 	
 	method sePuedeTranspasar() = false
 	
+	method efectoPowerUp() {}
+	
 }
 
 class ParedIzq inherits Pared{
@@ -51,16 +53,3 @@ class ParedArriba inherits Pared{
 		 unaPelota.vaAlNorte(false)
 	}
 }
-/*
-class ParedAbajo inherits Pared{
-	
-	override method image() = "ParedAbajo.png"
-	
-	override method redireccionarElemento(unaPelota) {}
-	
-	override method efecto(){
-		
-	}
-	override method cambiarBrujula(unaPelota) {}
-}
-*/
