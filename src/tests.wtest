@@ -1,6 +1,29 @@
+import barra.*
+import nivel0.*
 
-test "¡sep, vale hacer tests también!" {
-
-	assert.that(false)
-
+test "inicio con 3 vidas" {
+	assert.that(nivel0.vidas() == 3)
 }
+
+test "sumar vidas"{
+	nivel0.agregarVida()
+	assert.that(nivel0.vidas() == 4)
+}
+
+test "sinTiros"{
+	assert.that(nivel0.tiros() == 0)
+}
+
+test "conTiros"{
+	nivel0.sumarTiros()
+	assert.that(nivel0.tiros() > 0)
+}
+
+//test "cantidadDeBloques"{
+//	assert.equals(20, nivel0.numeroDeBloques())
+//}
+//
+//test "sacarBloques"{
+//	nivel0.unoBloqueMenos()
+//	assert.equals(19, nivel0.numeroDeBloques())
+//}

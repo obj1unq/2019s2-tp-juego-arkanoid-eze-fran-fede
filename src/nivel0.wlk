@@ -172,15 +172,11 @@ object nivel0 {
 		game.addVisual(barra1Der)
 		
 	}
-/* 	
-	method colocarBarraGrande(){
-		game.addVisual(barra2Izq)
-		game.addVisual(barra2Der)
-	}
-*/
+
 	method unoBloqueMenos(){
 		numeroDeBloques -= 1
 	}
+
 	method unoBloqueMas(){
 		numeroDeBloques += 1
 	}
@@ -210,7 +206,6 @@ object nivel0 {
 		activadoTresPelotas = true
 		
 		
-//		game.addVisual(pelotaAzul)
 	}
 	
 	
