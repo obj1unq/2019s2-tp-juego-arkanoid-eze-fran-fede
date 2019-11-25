@@ -30,4 +30,6 @@ class Laser {
 	method cambiarBrujula(unaPelota) {}
 	method efecto(){}
 	method redireccionarElemento(unaPelota) {}
+	
+	
 }

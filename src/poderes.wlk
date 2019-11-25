@@ -56,15 +56,7 @@ class Expandir inherits Poder{
 		if(nivel0.barraChicaActivada()){
 			nivel0.colocarBarraNormal()
 			nivel0.barraChicaActivada(false)
-		}else{
-			
-			
-		}
-		
-		
-		
-			
-		
+		}else{}		
 	}
 } 
 
@@ -86,8 +78,10 @@ class Laser inherits Poder{
 	override method image() = "Poder_05_Laser.png"
 	
 	override method efectoPowerUp(){
-		
-		nivel0.barraTieneLaser()
+		nivel0.sumarTiros()
+		if(nivel0.tiros() > 0){
+			 nivel0.barraTieneLaser()
+			 } 
 	}
 }
 

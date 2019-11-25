@@ -9,6 +9,8 @@ import direcciones.*
 object nivel0 {
 	var property vidas = 3
 	
+	var property tiros = 0
+	
 	var barraMedio = new Barra(position = new Position(x = 9, y = 0))
 	
 	var barra1Izq = new Barra(position = new Position(x = barraMedio.position().x() - 1, y = 0))
@@ -152,20 +154,13 @@ object nivel0 {
 		direccionOeste = oeste
 	}	
 	
-//	method configurarTeclas(dibujo){
-//		if(self.barraBorracha()) self.configurarTeclasBorrachas(dibujo)
-//						else  self.configurarTeclasNormal(dibujo)
-//	}
 
 	method configurarTeclasNormal(dibujo){
 		keyboard.right().onPressDo { dibujo.nuevaPosisionEste(direccionEste.cambiarPosicion(dibujo.position())) }
 		keyboard.left().onPressDo { dibujo.nuevaPosisionOeste(direccionOeste.cambiarPosicion(dibujo.position())) }
 	}
 	
-//	method configurarTeclasBorrachas(dibujo){
-//		keyboard.right().onPressDo { dibujo.nuevaPosisionOeste(oeste.cambiarPosicion(dibujo.position())) }
-//		keyboard.left().onPressDo { dibujo.nuevaPosisionEste(este.cambiarPosicion(dibujo.position())) }
-//	}
+
 	method colocarBarraChica(){
 		
 		game.removeVisual(barra1Izq)
@@ -191,10 +186,18 @@ object nivel0 {
 	}
 	
 	method barraTieneLaser(){
-		
-		keyboard.a().onPressDo{barraMedio.disparar()}
-
+		keyboard.a().onPressDo{ barraMedio.disparar() }
 	}
+	
+	method gastarTiros(){
+	tiros -= 1
+	}
+	
+	method sumarTiros(){
+	tiros +=5
+	}	
+	
+	
 	method agregarDosPelotas(){
 		var pelotaNaranja = new Pelota(position = new Position(x = 9, y = 3), imagen = "PelotaNaranja.png") 
 		game.addVisual(pelotaNaranja)
