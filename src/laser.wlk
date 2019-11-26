@@ -12,6 +12,9 @@ class Laser {
 		game.onTick(600, "movimientoLaser", { self.position(norte.cambiarPosicion(position)) 
 												self.romperSiHayBloque()
 		})
+		//TODO: Pensar en aprovechar esto y evitar hacer el "romperSiHayBloque()" a mano
+		game.onCollideDo(self, {objeto => objeto.efecto()})
+		
 	}
 	
 	method sePuedeTranspasar() = true

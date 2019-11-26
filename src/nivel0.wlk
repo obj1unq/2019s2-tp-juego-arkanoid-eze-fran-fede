@@ -192,6 +192,7 @@ object nivel0 {
 	
 	
 	method agregarDosPelotas(){
+		//TODO: Pensar en tener una colección de pelotas (en el nivel)
 		var pelotaNaranja = new Pelota(position = new Position(x = 9, y = 3), imagen = "PelotaNaranja.png") 
 		game.addVisual(pelotaNaranja)
 		game.onTick(200, "movimientoDeLaPelotaNaranja", { pelotaNaranja.siguientePosicion() } )
